@@ -1,4 +1,4 @@
-# NexCore IT Solutions Website
+# L2 IT Solutions Website
 
 Professional website for an IT solutions company based in the Philippines, built with Next.js 14, Tailwind CSS (v4), Framer Motion, and Anthropic Claude AI.
 
