@@ -69,7 +69,7 @@ export default function TheL2Advantage() {
           <div className="relative">
             <div className="relative z-10 rounded-[3.5rem] overflow-hidden shadow-2xl border-2 border-border bg-white aspect-[4/3]">
               <Image
-                src="/images/area.jpg"
+                src="https://images.unsplash.com/photo-1558494949-ef01095bf810?auto=format&fit=crop&q=80&w=1200"
                 alt="L2 IT Solutions — Professional Installation"
                 fill
                 className="object-cover"

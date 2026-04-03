@@ -7,18 +7,13 @@ import { getSlideshowImages, type SlideshowImage } from "../lib/store";
 const DEFAULT_SLIDES: SlideshowImage[] = [
   {
     id: "default-1",
-    src: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&q=80&w=1200",
+    src: "/images/area area.jpg",
     alt: "Modern Data Center Infrastructure",
   },
   {
     id: "default-2",
-    src: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&q=80&w=1200",
+    src: "/images/area.jpg",
     alt: "IP Security Camera Installation",
-  },
-  {
-    id: "default-3",
-    src: "https://images.unsplash.com/photo-1558494949-ef01095bf810?auto=format&fit=crop&q=80&w=1200",
-    alt: "Enterprise Server Room",
   },
 ];
 
@@ -107,11 +102,10 @@ export default function HeroSlideshow() {
           <button
             key={idx}
             onClick={() => goTo(idx)}
-            className={`transition-all duration-300 rounded-full ${
-              idx === current
-                ? "bg-white w-6 h-2"
-                : "bg-white/50 hover:bg-white/80 w-2 h-2"
-            }`}
+            className={`transition-all duration-300 rounded-full ${idx === current
+              ? "bg-white w-6 h-2"
+              : "bg-white/50 hover:bg-white/80 w-2 h-2"
+              }`}
             aria-label={`Go to slide ${idx + 1}`}
           />
         ))}
