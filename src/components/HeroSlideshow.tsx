@@ -4,15 +4,18 @@ import { useState, useEffect, useCallback } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { getSlideshowImages, type SlideshowImage } from "../lib/store";
 
+import areaAreaImg from "@/images/area area.jpg";
+import areaImg from "@/images/area.jpg";
+
 const DEFAULT_SLIDES: SlideshowImage[] = [
   {
     id: "default-1",
-    src: "/images/area area.jpg",
+    src: areaAreaImg.src,
     alt: "Modern Data Center Infrastructure",
   },
   {
     id: "default-2",
-    src: "/images/area.jpg",
+    src: areaImg.src,
     alt: "IP Security Camera Installation",
   },
 ];
