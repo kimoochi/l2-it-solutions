@@ -1,18 +1,11 @@
-import { createGoogleGenerativeAI } from "@ai-sdk/google";
-import { generateText } from "ai";
 import { NextResponse } from "next/server";
-
-// Configure the Google AI provider
-const google = createGoogleGenerativeAI({
-  apiKey: process.env.GOOGLE_GENERATIVE_AI_API_KEY,
-});
 
 // Allow responses up to 30 seconds
 export const maxDuration = 30;
 
 /**
  * POST /api/chat
- * Gemini-powered technical advisor for L2 IT Solutions.
+ * Groq-powered technical advisor for L2 IT Solutions.
  */
 export async function POST(req: Request) {
   const { messages } = await req.json();
@@ -41,26 +34,39 @@ Your goal is to provide professional, technical, and helpful advice to potential
 - Encourage users to visit the "Contact" page or call +63 (032) 123-4567 for a formal quote.
   `;
 
-  // Prepend system instructions into the first message to avoid SDK protocol bugs
-  const processedMessages = messages.map((m: any, idx: number) => {
-    if (idx === 0) {
-      return {
-        ...m,
-        content: `CONTEXT & INSTRUCTIONS:\n${systemInstructions}\n\nUSER MESSAGE:\n${m.content}`,
-      };
-    }
-    return m;
-  });
-
   try {
-    const result = await generateText({
-      model: google("gemini-2.5-flash"),
-      messages: processedMessages,
+    // Groq requires strictly the role and content fields.
+    const strictMessages = messages.map((m: any) => ({
+      role: m.role,
+      content: m.content
+    }));
+
+    const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer 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`,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        model: "llama-3.3-70b-versatile",
+        messages: [
+          { role: "system", content: systemInstructions },
+          ...strictMessages
+        ]
+      })
     });
 
-    return NextResponse.json({ content: result.text });
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(`Groq API error: ${response.status} ${response.statusText} - ${errorText}`);
+    }
+
+    const data = await response.json();
+    const replyText = data.choices[0].message.content;
+
+    return NextResponse.json({ content: replyText });
   } catch (error: any) {
-    console.error("Gemini API error:", error?.message || error);
+    console.error("Groq API error:", error?.message || error);
     return NextResponse.json(
       { content: "I'm sorry, I'm having trouble connecting right now. Please try again in a moment, or contact us directly at +63 (032) 123-4567." },
       { status: 200 }

@@ -14,14 +14,14 @@ export default function Footer() {
 
   return (
     <footer className="bg-secondary text-white py-20 border-t border-white/5 relative overflow-hidden">
-      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary/0 via-primary/50 to-primary/0" />
+      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-white/0 via-white/20 to-white/0" />
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Brand Col */}
           <div className="space-y-6">
             <Link href="/" className="flex items-center gap-3 group">
-              <div className="relative w-12 h-12 flex-shrink-0 bg-white rounded-xl shadow-lg shadow-primary/20 transform group-hover:scale-105 transition-transform duration-300 overflow-hidden">
+              <div className="relative w-12 h-12 flex-shrink-0 bg-white rounded-xl shadow-lg shadow-black/10 transform group-hover:scale-105 transition-transform duration-300 overflow-hidden">
                 <Image 
                   src="/l2.jpg" 
                   alt="L2 IT Solutions Logo" 
@@ -39,7 +39,7 @@ export default function Footer() {
                 </span>
               </div>
             </Link>
-            <p className="text-white/50 text-sm leading-relaxed max-w-xs italic">
+            <p className="text-white/90 text-sm leading-relaxed max-w-xs italic">
               Empowering Philippines' infrastructure through high-tier surveillance, networking, and professional connectivity solutions.
             </p>
             <div className="flex gap-4">
@@ -97,8 +97,8 @@ export default function Footer() {
                 { name: "Contact", href: "/contact" }
               ].map((item) => (
                 <li key={item.name}>
-                  <Link href={item.href} className="text-white/50 hover:text-primary transition-colors text-sm flex items-center gap-2 group">
-                    <span className="h-px w-0 bg-primary group-hover:w-4 transition-all duration-300" />
+                  <Link href={item.href} className="text-white/80 hover:text-white transition-colors text-sm flex items-center gap-2 group">
+                    <span className="h-px w-0 bg-white group-hover:w-4 transition-all duration-300" />
                     {item.name}
                   </Link>
                 </li>
@@ -109,7 +109,7 @@ export default function Footer() {
           {/* Contact Col */}
           <div>
             <h4 className="font-bold text-lg mb-6 border-l-4 border-primary pl-4">Get In Touch</h4>
-            <ul className="space-y-4 text-sm text-white/50">
+            <ul className="space-y-4 text-sm text-white/90">
               <li className="flex items-start gap-3">
                 <MapPin className="h-5 w-5 text-primary shrink-0" />
                 <span>Purok Kamungay, Alegria, Cordova, Cebu</span>
@@ -135,24 +135,24 @@ export default function Footer() {
           <div>
             <h4 className="font-bold text-lg mb-6 border-l-4 border-primary pl-4">Authorized Dealers</h4>
             <div className="grid grid-cols-2 gap-4">
-              <div className="bg-white/5 p-3 rounded-xl border border-white/5 flex flex-col items-center justify-center grayscale hover:grayscale-0 transition-all cursor-default">
+              <div className="bg-white p-3 rounded-xl flex flex-col items-center justify-center grayscale hover:grayscale-0 transition-all cursor-default shadow-sm border border-white/20">
                 <span className="text-[10px] font-black tracking-widest text-[#ed1c24]">HIKVISION</span>
               </div>
-              <div className="bg-white/5 p-3 rounded-xl border border-white/5 flex flex-col items-center justify-center grayscale hover:grayscale-0 transition-all cursor-default">
-                <span className="text-[10px] font-black tracking-widest text-primary">RUIJIE</span>
+              <div className="bg-white p-3 rounded-xl flex flex-col items-center justify-center grayscale hover:grayscale-0 transition-all cursor-default shadow-sm border border-white/20">
+                <span className="text-[10px] font-black tracking-widest text-[#f5821f]">RUIJIE</span>
               </div>
-              <div className="bg-white/5 p-3 rounded-xl border border-white/5 flex flex-col items-center justify-center col-span-2 grayscale hover:grayscale-0 transition-all cursor-default">
-                 <span className="text-[10px] font-black tracking-widest text-white/80 uppercase">Dahua Technology</span>
+              <div className="bg-white p-3 rounded-xl flex flex-col items-center justify-center col-span-2 grayscale hover:grayscale-0 transition-all cursor-default shadow-sm border border-white/20">
+                 <span className="text-[10px] font-black tracking-widest text-[#0F172A] uppercase">Dahua Technology</span>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] text-white/30 font-bold uppercase tracking-widest">
+        <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] text-white/60 font-bold uppercase tracking-widest">
           <p>© {currentYear} L2 IT Solutions. All rights reserved.</p>
           <div className="flex gap-6">
-            <Link href="#" className="hover:text-primary">Privacy</Link>
-            <Link href="#" className="hover:text-primary">Terms</Link>
+            <Link href="#" className="hover:text-white transition-colors">Privacy</Link>
+            <Link href="#" className="hover:text-white transition-colors">Terms</Link>
           </div>
         </div>
       </div>

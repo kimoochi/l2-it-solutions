@@ -7,10 +7,13 @@
   --font-heading: var(--font-syne), ui-sans-serif, system-ui, sans-serif;
   --font-body: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
 
-  --color-primary: #f5821f; /* L2 Orange */
-  --color-secondary: #2a8b3e; /* L2 Dark Green */
-  --color-accent: #3dbfa8; /* L2 Teal */
-  --color-page-bg: #F8FAFC; 
+  --color-primary: #f5821f;
+  /* L2 Orange */
+  --color-secondary: #059669;
+  /* L2 Emerald Green (Darker for Contrast) */
+  --color-accent: #3dbfa8;
+  /* L2 Teal */
+  --color-page-bg: #F8FAFC;
   --color-card-bg: #FFFFFF;
   --color-text-main: #0F172A;
   --color-text-muted: #64748B;
@@ -25,10 +28,17 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-page-bg text-text-main font-body selection:bg-primary/30;
   }
-  h1, h2, h3, h4, h5, h6 {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-heading tracking-tight;
   }
 }
@@ -37,12 +47,14 @@
   .glass {
     @apply bg-white/70 backdrop-blur-md border border-white/20;
   }
+
   .glass-dark {
     @apply bg-black/30 backdrop-blur-md border border-white/10;
   }
+
   .hero-gradient {
     background: radial-gradient(circle at top right, rgba(16, 185, 129, 0.1), transparent),
-                radial-gradient(circle at bottom left, rgba(6, 78, 59, 0.05), transparent);
+      radial-gradient(circle at bottom left, rgba(6, 78, 59, 0.05), transparent);
   }
 }
 
@@ -52,6 +64,7 @@
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -63,9 +76,17 @@
 }
 
 @keyframes bounce-slow {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
 }
+
 .animate-bounce-slow {
   animation: bounce-slow 3s ease-in-out infinite;
 }
